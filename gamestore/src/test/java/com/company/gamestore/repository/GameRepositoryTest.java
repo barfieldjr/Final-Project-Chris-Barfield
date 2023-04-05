@@ -18,7 +18,8 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class GameRepositoryTest {
 
-    @Autowired GameRepository gameRepository;
+    @Autowired
+    GameRepository gameRepository;
 
     @Before
     public void setUp() throws Exception{

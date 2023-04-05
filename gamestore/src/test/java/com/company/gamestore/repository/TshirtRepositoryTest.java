@@ -19,7 +19,8 @@ import static org.junit.Assert.*;
 @SpringBootTest
 public class TshirtRepositoryTest {
 
-    @Autowired TshirtRepository tshirtRepository;
+    @Autowired
+    TshirtRepository tshirtRepository;
 
     @Before
     public void setUp() throws Exception {
