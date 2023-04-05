@@ -423,7 +423,7 @@ public class ServiceLayer {
         //Making this viewmodel point to our updated invoice
         viewModel.setId(userInvoice.getId());
 
-        // Removing either Game, Console, or Tshirt if supply is down to 0.]
+        // Removing either Game, Console, or Tshirt if supply is down to 0.
         if(removeGame){
             gameRepository.deleteById(foundGame.getGameId());
         }
