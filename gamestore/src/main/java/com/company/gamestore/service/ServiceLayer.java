@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,10 +73,8 @@ public class ServiceLayer {
     //
     // GAME API
     //
-
-
+    @Transactional
     public Game saveGame(Game game){
-
         return gameRepository.save(game);
     }
 
@@ -375,7 +372,6 @@ public class ServiceLayer {
         }
         BigDecimal processingFee = BigDecimal.valueOf(itemTypeFee.get().getFee());
 
-        System.out.println("Puede que aca comienza el error");
         if (viewModel.getQuantity() > 10) {
             processingFee = processingFee.add(new BigDecimal("15.49"));
         }

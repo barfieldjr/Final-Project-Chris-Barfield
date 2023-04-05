@@ -1,7 +1,6 @@
 package com.company.gamestore.controller;
 
 import com.company.gamestore.model.Game;
-import com.company.gamestore.repository.GameRepository;
 import com.company.gamestore.service.ServiceLayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class GameController {
@@ -30,7 +28,7 @@ public class GameController {
     // Create a new Game information
     @PostMapping("/games")
     @ResponseStatus(HttpStatus.CREATED)
-    public Game addGameInformation (@RequestBody @Valid Game game){
+    public Game addGameInformation (@Valid @RequestBody Game game){
         return serviceLayer.saveGame(game);
     }
 
