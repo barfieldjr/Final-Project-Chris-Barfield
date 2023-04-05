@@ -6,8 +6,11 @@ import com.company.gamestore.repository.ConsoleRepository;
 import com.company.gamestore.repository.GameRepository;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -16,7 +19,8 @@ import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
-
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class ServiceLayerTest {
 
     ServiceLayer serviceLayer;
