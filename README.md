@@ -93,10 +93,6 @@ To run the tests for the Game Store REST API, execute the following command:
 mvn test
 ```
 
-## Video
-
-Here is the
-
 
 
 
