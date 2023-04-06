@@ -4,6 +4,15 @@
 
 Welcome to our Game Store REST API project! Our team has developed a comprehensive and fully functional API that simulates the operations of a game store. We have leveraged the power of Spring Boot JPA and Java to build the necessary components, such as models, repositories, service layers, controllers, GraphQLs, and tests for the entire API.
 
+## Video
+
+Link of the video: 
+
+## Slides
+
+Link of the Slide Deck: https://docs.google.com/presentation/d/15iolIzsNPzu-NSCAuovEP-qNe2cyM0wTaIasdpNrU80/edit?usp=sharing
+
+
 ## Table of Contents
 
 1. [Features](#features)
@@ -74,7 +83,7 @@ The Game Store REST API provides the following endpoints:
 - `PUT /games/{id}`: Update an existing game's information
 - `DELETE /games/{id}`: Remove a game from the inventory
 
-(Will be the same for T-Shir, Console, and Invoice)
+(Will be the same for T-Shirt, Console, and Invoice)
 
 ## Testing
 
@@ -84,6 +93,9 @@ To run the tests for the Game Store REST API, execute the following command:
 mvn test
 ```
 
+## Video
+
+Here is the
 
 
 
