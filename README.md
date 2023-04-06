@@ -13,6 +13,7 @@ Welcome to our Game Store REST API project! Our team has developed a comprehensi
 5. [Testing](#testing)
 
 
+
 ## Features
 
 Our Game Store REST API offers the following key features:
@@ -82,6 +83,8 @@ To run the tests for the Game Store REST API, execute the following command:
 ```bash
 mvn test
 ```
+
+
 
 
 

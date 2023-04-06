@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +24,12 @@ public class InvoiceRepositoryTest {
 
     @Autowired
     InvoiceRepository invoiceRepository;
+
+    @Autowired
+    TaxRepository taxRepository;
+
+    @Autowired
+    FeeRepository feeRepository;
 
 
 
@@ -57,7 +64,26 @@ public class InvoiceRepositoryTest {
         invoice.setZipcode("93612");
         invoice.setItemType("Game");
         invoice.setItemId(game.getGameId()); // getting the id from the game we created
-        invoice.setQuantity(50);
+        invoice.setQuantity(12);
+
+        //Calculations
+        BigDecimal unitPrice = game.getPrice();
+        BigDecimal quantity = new BigDecimal(invoice.getQuantity());
+        BigDecimal subtotal = unitPrice.multiply(quantity); // unitPrice.multiply(new BigDecimal(invoice.getQuantity()))
+
+        BigDecimal taxRate =  taxRepository.findByState(invoice.getState()).get().getRate();
+        BigDecimal baseProcessingFee = new BigDecimal("1.49");
+        BigDecimal additionalProcessingFee = new BigDecimal("15.49");
+
+        BigDecimal amountGettingTaxed = taxRate.multiply(subtotal);
+        BigDecimal total = amountGettingTaxed.add(subtotal).add(baseProcessingFee).add(additionalProcessingFee);
+
+        // Setting final Invoice variables
+        invoice.setUnitPrice(unitPrice);
+        invoice.setSubtotal(subtotal);
+        invoice.setTax( amountGettingTaxed.setScale(2, RoundingMode.CEILING));
+        invoice.setProcessingFee(additionalProcessingFee.add(baseProcessingFee));
+        invoice.setTotal(total.setScale(2, RoundingMode.CEILING));
 
         invoice = invoiceRepository.save(invoice);
 
@@ -95,11 +121,32 @@ public class InvoiceRepositoryTest {
         invoice.setZipcode("93612");
         invoice.setItemType("Game");
         invoice.setItemId(game.getGameId()); // getting the id from the game we created
-        invoice.setQuantity(50);
+        invoice.setQuantity(12);
+
+        //Calculations
+        BigDecimal unitPrice = game.getPrice();
+        BigDecimal quantity = new BigDecimal(invoice.getQuantity());
+        BigDecimal subtotal = unitPrice.multiply(quantity); // unitPrice.multiply(new BigDecimal(invoice.getQuantity()))
+
+        BigDecimal taxRate =  taxRepository.findByState(invoice.getState()).get().getRate();
+        BigDecimal baseProcessingFee = new BigDecimal("1.49");
+        BigDecimal additionalProcessingFee = new BigDecimal("15.49");
+
+        BigDecimal amountGettingTaxed = taxRate.multiply(subtotal);
+        BigDecimal total = amountGettingTaxed.add(subtotal).add(baseProcessingFee).add(additionalProcessingFee);
+
+        // Setting final Invoice variables
+        invoice.setUnitPrice(unitPrice);
+        invoice.setSubtotal(subtotal);
+        invoice.setTax( amountGettingTaxed.setScale(2, RoundingMode.CEILING));
+        invoice.setProcessingFee(additionalProcessingFee.add(baseProcessingFee));
+        invoice.setTotal(total.setScale(2, RoundingMode.CEILING));
 
         invoice = invoiceRepository.save(invoice);
 
+
         //Adding Second Invoice
+
         Game game2 = new Game();
         game2.setTitle("The Last of Us Part II");
         game2.setEsrbRating("M");
@@ -119,6 +166,34 @@ public class InvoiceRepositoryTest {
         invoice2.setItemType("Game");
         invoice2.setItemId(game2.getGameId());
         invoice2.setQuantity(25);
+
+
+
+        //Calculations
+        BigDecimal unitPrice2 = game2.getPrice();
+        BigDecimal quantity2 = new BigDecimal(invoice2.getQuantity());
+        BigDecimal subtotal2 = unitPrice.multiply(quantity2); // unitPrice.multiply(new BigDecimal(invoice.getQuantity()))
+
+        BigDecimal taxRate2 =  taxRepository.findByState(invoice2.getState()).get().getRate();
+        BigDecimal baseProcessingFee2 = new BigDecimal("1.49");
+        BigDecimal additionalProcessingFee2 = new BigDecimal("15.49");
+
+        BigDecimal amountGettingTaxed2 = taxRate2.multiply(subtotal2);
+        BigDecimal total2 = amountGettingTaxed2.add(subtotal2).add(baseProcessingFee2).add(additionalProcessingFee2);
+
+        // Setting final Invoice variables
+        invoice2.setUnitPrice(unitPrice2);
+        invoice2.setSubtotal(subtotal2);
+        invoice2.setTax( amountGettingTaxed2.setScale(2, RoundingMode.CEILING));
+        invoice2.setProcessingFee(additionalProcessingFee2.add(baseProcessingFee2));
+        invoice2.setTotal(total2.setScale(2, RoundingMode.CEILING));
+
+
+
+
+
+
+
 
         invoice2 = invoiceRepository.save(invoice2);
 
@@ -151,7 +226,26 @@ public class InvoiceRepositoryTest {
         invoice.setZipcode("93612");
         invoice.setItemType("Game");
         invoice.setItemId(game.getGameId()); // getting the id from the game we created
-        invoice.setQuantity(50);
+        invoice.setQuantity(12);
+
+        //Calculations
+        BigDecimal unitPrice = game.getPrice();
+        BigDecimal quantity = new BigDecimal(invoice.getQuantity());
+        BigDecimal subtotal = unitPrice.multiply(quantity); // unitPrice.multiply(new BigDecimal(invoice.getQuantity()))
+
+        BigDecimal taxRate =  taxRepository.findByState(invoice.getState()).get().getRate();
+        BigDecimal baseProcessingFee = new BigDecimal("1.49");
+        BigDecimal additionalProcessingFee = new BigDecimal("15.49");
+
+        BigDecimal amountGettingTaxed = taxRate.multiply(subtotal);
+        BigDecimal total = amountGettingTaxed.add(subtotal).add(baseProcessingFee).add(additionalProcessingFee);
+
+        // Setting final Invoice variables
+        invoice.setUnitPrice(unitPrice);
+        invoice.setSubtotal(subtotal);
+        invoice.setTax( amountGettingTaxed.setScale(2, RoundingMode.CEILING));
+        invoice.setProcessingFee(additionalProcessingFee.add(baseProcessingFee));
+        invoice.setTotal(total.setScale(2, RoundingMode.CEILING));
 
         invoice = invoiceRepository.save(invoice);
 

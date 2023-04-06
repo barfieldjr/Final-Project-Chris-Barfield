@@ -40,7 +40,7 @@ public class ConsoleRepositoryTest {
         console.setModel("Nintendo Switch");
         console.setManufacturer("Nintendo");
         console.setMemoryAmount("1T");
-        console.setProcessor("NVIDIA Custom Tegra processor");
+        console.setProcessor("NVIDIA");
         console.setPrice(new BigDecimal( "299.99"));
         console.setQuantity(100);
 
@@ -66,7 +66,7 @@ public class ConsoleRepositoryTest {
         console.setModel("Nintendo Switch");
         console.setManufacturer("Nintendo");
         console.setMemoryAmount("1T");
-        console.setProcessor("NVIDIA Custom Tegra processor");
+        console.setProcessor("NVIDIA");
         console.setPrice(new BigDecimal( "299.99"));
         console.setQuantity(100);
 
@@ -79,7 +79,7 @@ public class ConsoleRepositoryTest {
         console2.setModel("PlayStation 5");
         console2.setManufacturer("Sony");
         console2.setMemoryAmount("825GB SSD");
-        console2.setProcessor("AMD Zen 2, 8-core, up to 3.5 GHz");
+        console2.setProcessor("AMD Zen 2");
         console2.setPrice(new BigDecimal("499.99"));
         console2.setQuantity(50);
 
@@ -97,7 +97,7 @@ public class ConsoleRepositoryTest {
         console.setModel("Nintendo Switch");
         console.setManufacturer("Nintendo");
         console.setMemoryAmount("1T");
-        console.setProcessor("NVIDIA Custom Tegra processor");
+        console.setProcessor("NVIDIA");
         console.setPrice(new BigDecimal( "299.99"));
         console.setQuantity(100);
 
