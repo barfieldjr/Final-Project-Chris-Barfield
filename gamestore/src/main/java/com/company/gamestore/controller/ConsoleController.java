@@ -64,6 +64,7 @@ public class ConsoleController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteConsole(@PathVariable int id) {
         serviceLayer.deleteConsole(id);
+        System.out.println("Delete");
     }
 
     // Get consoles by manufacturer
